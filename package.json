@@ -1,7 +1,7 @@
 {
   "publisher": "jtikrazz",
   "name": "sql-insert-inlay-hints",
-  "displayName": "Sql Insert Inlay Hints",
+  "displayName": "SQL Insert Inlay Hints",
   "description": "Provides inlay hints for SQL INSERT INTO statements",
   "icon": "extension-icon.png",
   "version": "1.0.6",
@@ -10,7 +10,7 @@
     "url": "https://github.com/jtikrazz/sql-insert-inlay-hints"
   },
   "engines": {
-    "vscode": "^1.97.0"
+    "vscode": "^1.0.0"
   },
   "categories": [
     "Programming Languages"
@@ -20,6 +20,15 @@
   ],
   "main": "./out/extension.js",
   "contributes": {
+    "configuration": {
+      "properties": {
+        "sqlInsertInlineHints.colon": {
+          "type": "boolean",
+          "default": false,
+          "description": "Add `: ` after the hint label."
+        }
+      }
+    },
     "languages": [
       {
         "id": "sql",

@@ -2,7 +2,7 @@ import * as vscode from "vscode";
 import { ParsedInsert } from "./parsed-insert.type";
 
 const SQL_SELECTOR = { scheme: "file", language: "sql" };
-const SQL_INSERT_PATTERN = /INSERT\s+INTO\s+\w+\s*\((.*?)\)\s*VALUES\s*\(([\s\S]*?)\)/gi;
+const SQL_INSERT_PATTERN = /INSERT\s+INTO\s+"?\w+"?\s*\((.*?)\)\s*VALUES\s*\(([\s\S]*?)\)/gis;
 
 export function activate(context: vscode.ExtensionContext) {
   const provider = new SQLInsertInlayHintsProvider();
@@ -109,8 +109,13 @@ class SQLInsertInlayHintsProvider implements vscode.InlayHintsProvider {
       const value = statement.values[i].trim();
       const valuePos = document.getText().indexOf(value, currentPos);
 
+
       if (valuePos !== -1) {
-        const hint = new vscode.InlayHint(document.positionAt(valuePos), `${statement.columns[i]}: `, vscode.InlayHintKind.Parameter);
+        let hintLabel = `${statement.columns[i]}`;
+        if (vscode.workspace.getConfiguration('sqlInsertInlineHints').get('colon')) {
+          hintLabel += ': ';
+        }
+        const hint = new vscode.InlayHint(document.positionAt(valuePos), hintLabel, vscode.InlayHintKind.Parameter);
 
         hints.push(hint);
         currentPos = valuePos + value.length;
