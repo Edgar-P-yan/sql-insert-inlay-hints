@@ -1,13 +1,13 @@
 {
-  "publisher": "jtikrazz",
+  "publisher": "Edgar-P-Yan",
   "name": "sql-insert-inlay-hints",
-  "displayName": "SQL Insert Inlay Hints",
-  "description": "Provides inlay hints for SQL INSERT INTO statements",
+  "displayName": "SQL Insert Inlay Hints (fork by Edgar-P-Yan)",
+  "description": "Provides inlay hints for SQL INSERT INTO statements (fork by Edgar-P-Yan)",
   "icon": "extension-icon.png",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jtikrazz/sql-insert-inlay-hints"
+    "url": "https://github.com/Edgar-P-Yan/sql-insert-inlay-hints"
   },
   "engines": {
     "vscode": "^1.82.0"
