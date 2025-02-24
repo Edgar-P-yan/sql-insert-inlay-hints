@@ -10,7 +10,7 @@
     "url": "https://github.com/jtikrazz/sql-insert-inlay-hints"
   },
   "engines": {
-    "vscode": "^1.0.0"
+    "vscode": "^1.82.0"
   },
   "categories": [
     "Programming Languages"
@@ -43,6 +43,6 @@
     "watch": "tsc -watch -p ./"
   },
   "devDependencies": {
-    "@types/vscode": "^1.97.0"
+    "@types/vscode": "~1.82.0"
   }
 }
